@@ -33,17 +33,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
 
-      {/* NAVBAR */}
-      <Navbar />
-
       {/* PAGE CONTENT */}
       <div className="p-6">
 
         <div className="grid grid-cols-2">
           <h1 className="text-3xl font-bold mb-4">Social Feed</h1>
-          <p className="text-3xl text-right font-bold mb-4 bg-gradient-to-tr from-red-500 to-purple-500 rounded-full">
-            Add New Post
-          </p>
         </div>
 
         <div className="mx-auto grid grid-cols-2 gap-8 px-12">
@@ -52,11 +46,14 @@ export default function Home() {
               key={post.id}
               className="bg-gradient-to-tr from-red-500 to-purple-500 rounded-2xl shadow-sm p-1 space-y-4"
             >
-              <div className="bg-white rounded-xl shadow-sm p-5 space-y-4">
+              <div className="min-h-full bg-white rounded-xl shadow-sm p-5 space-y-4">
 
                 <div className="text-left">
                   <p className="text-md text-gray-800">
                     <b>Username:</b> {post.username}
+                  </p>
+                  <p className="text-md text-gray-800">
+                    <b>Title:</b> {post.title}
                   </p>
                 </div>
 
@@ -64,13 +61,20 @@ export default function Home() {
                   {post.description}
                 </div>
 
+                
+
                 <div className="text-left">
                   <p
-                    className="text-md text-gray-500 pl-2 cursor-pointer"
-                    onClick={() => likePost(post.id)}
+                    className="text-md text-gray-500 pl-2"
                   >
-                    Likes: {post.likes}
+                    {post.username} - {post.likes} likes
                   </p>
+                  
+                </div>
+                <div className="text-left cursor-pointer" onClick={() => likePost(post.id)}>
+                      {
+                          post.liked ? <div className="text-3xl">&#x2665;&#xfe0f;</div> : <div className="text-3xl">&#9825;</div>
+                      }
                 </div>
 
               </div>

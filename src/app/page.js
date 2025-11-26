@@ -1,38 +1,67 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const loadPosts = () => {
+      const storedPosts = localStorage.getItem("posts");
+      if (storedPosts) {
+        setPosts(JSON.parse(storedPosts));
+      } else {
+        setPosts([]);
+      }
+    };
+    loadPosts();
+  }, []);
+
+  const likePost = (postId) => {
+    setIsLiked(!isLiked);
+
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId && !isLiked) {
+        return { ...post, likes: post.likes + 1 };
+      } else if (post.id === postId && isLiked) {
+        return { ...post, likes: post.likes - 1 };
+      }
+      return post;
+    });
+    setPosts(updatedPosts);
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  }
+
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
-    <div>
       <div className="min-h-screen bg-gray-100 p-6">
-
-
-        <div className="max-w-xl mx-auto space-y-4">
-          
-
-          <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
-            
-            <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
-        
-
-              <div className="text-left">
-                <p className="text-xs text-gray-500">Hello,</p>
-                <p className="text-sm font-semibold text-gray-800">@username123</p>
-              </div>
-
-
-              <div className="bg-gray-100 rounded-xl p-4 text-gray-700">
-                space for post text
-              </div>
-
-            </div>
-
-
-            </div>
-
-
-          </div>
-
+        <div className="grid grid-cols-2">
+          <h1 className="text-3xl font-bold mb-4">Social Feed</h1>
+          <p className="text-3xl text-right font-bold mb-4 bg-gradient-to-tr from-red-500 to-purple-500 rounded-full">Add New Post</p>
         </div>
-    </div>
+        <div className="mx-auto grid grid-cols-2 gap-8 px-12">
+          {
+            posts.map((post) => (
+              <div key={post.id} className="bg-gradient-to-tr from-red-500 to-purple-500 rounded-2xl shadow-sm p-1 space-y-4">
+                <div className="bg-white rounded-xl shadow-sm p-5 space-y-4">
+                  <div className="text-left">
+                    <p className="text-md text-gray-800"><b>Username:</b> {post.username}</p>
+                  </div>
+
+                  <div className="bg-gray-100 rounded-xl p-4 text-gray-700">
+                    {post.description}
+                  </div>
+
+                  <div className="text-left">
+                    <p className="text-md text-gray-500 pl-2 " onClick={() => likePost(post.id)}>Likes: {post.likes}</p>
+                  </div>
+
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
   );
 }

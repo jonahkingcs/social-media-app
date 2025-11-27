@@ -52,18 +52,6 @@ export default function PostForm() {
                             />
                         </div>
                         <div className="grid grid-cols-1 pb-12 bg-gray-100 rounded-xl p-4 text-gray-700">
-                            <label htmlFor="description" className="font-semibold">Description:</label>
-                            <input
-                                name="description"
-                                type="text"
-                                id="description"
-                                placeholder="Enter post description"
-                                onChange={handleInputChange}
-                                value= {postObject.description}
-                                
-                            />
-                            <div className="pb-4 pt-4 outline-1 outline-gray-300"></div>
-                            <label htmlFor="title" className="font-semibold">Title:</label>
                             <input
                                 name="title"
                                 type="text"
@@ -71,9 +59,20 @@ export default function PostForm() {
                                 placeholder="Enter post title"
                                 onChange={handleInputChange}
                                 value= {postObject.title}
+                                className="pb-2"
+                            />
+                            <hr className="text-gray-300"></hr>
+                            <input
+                                name="description"
+                                type="text"
+                                id="description"
+                                placeholder="Enter post description"
+                                onChange={handleInputChange}
+                                value= {postObject.description}
+                                className="pt-2"
                             />
                         </div>
-                        <div>
+                        <div className="pt-12">
                             <button type="submit" className="bg-blue-500 text-white px-4 py-4 rounded-xl hover:shadow-md hover:bg-blue-600 transition duration-200 ease-in-out">
                                 Submit Post
                             </button>

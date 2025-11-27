@@ -63,7 +63,7 @@ export default function Home() {
                         post.liked ? 
                           <div className="flex justify-content space-between items-center"><p className="text-3xl cursor-pointer" onClick={() => likePost(post.id)}>&#x2665;&#xfe0f;</p><p
                             className="text-md text-gray-500 pl-2">
-                              {post.likes} likes - {post.username}
+                              {post.likes} likes - @{post.username}
                             </p>
                           </div> 
                           : 

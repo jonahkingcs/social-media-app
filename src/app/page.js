@@ -37,7 +37,7 @@ export default function Home() {
       <div className="p-6">
 
         <div className="grid grid-cols-2">
-          <h1 className="text-3xl font-bold mb-4">Social Feed</h1>
+          <h1 className="text-3xl font-bold mb-4 text-black">Social Feed</h1>
         </div>
 
         <div className="mx-auto grid grid-cols-2 gap-8 px-12">

@@ -50,6 +50,7 @@ export default function PostForm() {
                                 value= {postObject.username}
                                 className="bg-gray-100 rounded-xl p-4 text-gray-700 focus:outline-none"
                                 required
+                                maxLength={30}
                             />
                         </div>
                         <div className="grid grid-cols-1 bg-gray-100 rounded-xl p-4 text-gray-700">
@@ -62,6 +63,7 @@ export default function PostForm() {
                                 value= {postObject.title}
                                 className="pb-2 focus:outline-none"
                                 required
+                                maxLength={100}
                             />
                             <hr className="text-gray-300"></hr>
                             <textarea
@@ -74,6 +76,7 @@ export default function PostForm() {
                                 className="pt-2 focus:outline-none resize-none"
                                 rows={4}
                                 required
+                                maxLength={300}
                             />
                         </div>
                         <div className="pt-12">

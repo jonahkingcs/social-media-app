@@ -1,4 +1,13 @@
-//TEST PULL//
+# Social Media App
+A social media app built using next.js
+
+## Features
+- Home page displaying social media posts
+- Add post page with a form to collect post information
+- Navbar with links to add posts and go home
+- Like icon shows whether a post is liked or not
+- Like counter increments when like is pressed by the user
+- Posts are stored and retrieved from local storage
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

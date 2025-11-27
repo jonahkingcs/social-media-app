@@ -18,7 +18,7 @@ export default function Navbar() {
           </a>
 
           <a 
-            href="/add-post" 
+            href="/post" 
             className="text-gray-700 hover:text-black transition"
           >
             Add Post

@@ -50,31 +50,30 @@ export default function Home() {
 
                 <div className="text-left">
                   <p className="text-md text-gray-800">
-                    <b>Username:</b> {post.username}
-                  </p>
-                  <p className="text-md text-gray-800">
                     <b>Title:</b> {post.title}
                   </p>
                 </div>
 
-                <div className="bg-gray-100 rounded-xl p-4 text-gray-700">
-                  {post.description}
-                </div>
+                <textarea className="w-full bg-gray-100 rounded-xl p-4 text-gray-700 resize-none" rows={4} value={post.description} readOnly />
 
                 
 
                 <div className="text-left">
-                  <p
-                    className="text-md text-gray-500 pl-2"
-                  >
-                    {post.likes} likes - {post.username}
-                  </p>
-                  
-                </div>
-                <div className="text-left cursor-pointer" onClick={() => likePost(post.id)}>
                       {
-                          post.liked ? <div className="text-3xl">&#x2665;&#xfe0f;</div> : <div className="text-3xl">&#9825;</div>
+                        post.liked ? 
+                          <div className="flex justify-content space-between items-center"><p className="text-3xl cursor-pointer" onClick={() => likePost(post.id)}>&#x2665;&#xfe0f;</p><p
+                            className="text-md text-gray-500 pl-2">
+                              {post.likes} likes - {post.username}
+                            </p>
+                          </div> 
+                          : 
+                          <div className="flex justify-content space-between gap-2 items-center"><p className="text-3xl cursor-pointer" onClick={() => likePost(post.id)}>&#9825;</p><p
+                            className="text-md text-gray-500 pl-2">
+                              {post.likes} likes - @{post.username}
+                            </p>
+                          </div>
                       }
+                      
                 </div>
 
               </div>

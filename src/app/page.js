@@ -40,7 +40,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold mb-4 text-black">Social Feed</h1>
         </div>
 
-        <div className="mx-auto grid grid-cols-2 gap-8 px-12">
+        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 px-0 lg:px-12">
           {posts.map((post) => (
             <div
               key={post.id}
@@ -67,7 +67,7 @@ export default function Home() {
                   <p
                     className="text-md text-gray-500 pl-2"
                   >
-                    {post.username} - {post.likes} likes
+                    {post.likes} likes - {post.username}
                   </p>
                   
                 </div>

@@ -49,7 +49,7 @@ export default function Home() {
               <div className="min-h-full bg-white rounded-xl shadow-sm p-5 space-y-4">
 
                 <div className="text-left">
-                  <p className="text-md text-gray-800">
+                  <p className="text-md text-gray-800 break-words">
                     <b>Title:</b> {post.title}
                   </p>
                 </div>
